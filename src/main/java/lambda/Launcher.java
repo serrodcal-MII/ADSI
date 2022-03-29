@@ -14,11 +14,11 @@ public class Launcher {
 	public static void main(String... strings) {
 		ExecutorService executor = Executors.newFixedThreadPool(NUM_THREADS);
 
-		// Runnable ingestor = new DataIngestor();
-		// executor.execute(ingestor);
+		Runnable ingestor = new DataIngestor();
+		executor.execute(ingestor);
 
-		// Runnable online = new OnlineLayerLauncher();
-		// executor.execute(online);
+		Runnable online = new OnlineLayerLauncher();
+		executor.execute(online);
 
 		Runnable batch = new BatchLayerLauncher();
 		executor.execute(batch);

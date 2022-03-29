@@ -15,12 +15,12 @@ public class ModelDTO {
 	
 	private List<String> claves;
 	
-	private List<List<String>> top10users;
+	private List<List<String>> topUsers;
 	
 	public ModelDTO(Map<String, List<String>> map) {
 		this.timestamp = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
 		this.claves = new ArrayList<String>(map.keySet());
-		this.top10users = claves.stream().map(x -> map.get(x)).collect(Collectors.toList());//claves.stream().map(x->map.get(x)).collect(Collectors.toList());
+		this.topUsers = claves.stream().map(x -> map.get(x)).collect(Collectors.toList());
 	}
 	
 	public ModelDTO() {
@@ -44,11 +44,11 @@ public class ModelDTO {
 	}
 
 	public List<List<String>> getTop10Users() {
-		return top10users;
+		return topUsers;
 	}
 
-	public void setTop10Users(List<List<String>> top10users) {
-		this.top10users = top10users;
+	public void setTop10Users(List<List<String>> topUsers) {
+		this.topUsers = topUsers;
 	}
 
 	@Override
