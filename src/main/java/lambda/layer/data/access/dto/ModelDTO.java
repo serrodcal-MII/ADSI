@@ -15,12 +15,12 @@ public class ModelDTO {
 	
 	private List<String> claves;
 	
-	private List<Long> frecuencias;
+	private List<List<String>> top10users;
 	
-	public ModelDTO(Map<String, Long> map) {
+	public ModelDTO(Map<String, List<String>> map) {
 		this.timestamp = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
 		this.claves = new ArrayList<String>(map.keySet());
-		this.frecuencias = claves.stream().map(x->map.get(x)).collect(Collectors.toList());
+		this.top10users = claves.stream().map(x -> map.get(x)).collect(Collectors.toList());//claves.stream().map(x->map.get(x)).collect(Collectors.toList());
 	}
 	
 	public ModelDTO() {
@@ -43,12 +43,12 @@ public class ModelDTO {
 		this.claves = claves;
 	}
 
-	public List<Long> getFrecuencias() {
-		return frecuencias;
+	public List<List<String>> getTop10Users() {
+		return top10users;
 	}
 
-	public void setFrecuencias(List<Long> frecuencias) {
-		this.frecuencias = frecuencias;
+	public void setTop10Users(List<List<String>> top10users) {
+		this.top10users = top10users;
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class ModelDTO {
 
 	@Override
 	public String toString() {
-		return "ModelDTO [timestamp=" + timestamp + ", claves=" + claves + ", frecuencias=" + frecuencias + "]";
+		return "ModelDTO [timestamp=" + timestamp + ", claves=" + claves + "]";
 	}
 
 }

@@ -49,7 +49,7 @@ public class OnlineETLFunction extends ProcessAllWindowFunction<String, String, 
 		}
 		
 		Map<String, Long> freqs = hashtags.stream().collect(Collectors.groupingBy(x -> x, Collectors.counting())); 
-		datastore.save(new OnlineModelDTO(freqs));
+		// datastore.save(new OnlineModelDTO(freqs));
 	}
 
 }
